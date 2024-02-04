@@ -7,7 +7,7 @@ import './css/styles.css';
 import { Snake } from './Snake';
 import { Grid } from './Grid';
 
-const STEP_DURATION = 500;
+const STEP_DURATION = 200;
 
 const renderer = new WebGLRenderer();
 renderer.setSize(
@@ -22,11 +22,8 @@ const camera = new OrthographicCamera();
 camera.position.z = 1;
 scene.add( camera );
 
-const grid = new Grid();
-grid.addToScene( scene );
-
-const snake = new Snake();
-snake.addToScene( scene );
+const grid = new Grid( scene );
+const snake = new Snake({ grid, scene });
 
 let start;
 function animate(prevFrameTime) {
