@@ -51,7 +51,7 @@ export class Snake {
 
     if (this.growing) {
       this.growTail();
-      this.grid.spawnFood();
+      this.grid.spawnFood([...this.tail, this.head]);
       this.growing = false;
     } else if (this.tail.length) {
       this.tail[0].position.x = this.head.position.x;
